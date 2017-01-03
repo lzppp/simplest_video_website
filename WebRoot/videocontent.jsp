@@ -57,7 +57,12 @@
 				              //scaling:'orig',
 				              url: playpath, 
 				              provider: 'rtmp',
-				              live:'true'
+				              live:'true',
+							  onBegin:function{
+								  atiem = this;
+								  console.log(atiem);
+								  window.setInterval("aa(atiem)",2000)
+							  }
 				            },   
 				            plugins: {   
 				               rtmp: {   
@@ -66,7 +71,9 @@
 				               }  
 				           }  
 				        }); 
-				        
+				        function aa(a){
+							console.log(a.getStatus().bufferStart - a.getStatus().buuferEnd);
+						}
 			        </script>
 						
 					</c:when>
